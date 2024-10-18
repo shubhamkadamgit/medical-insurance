@@ -16,7 +16,7 @@ def get_homeapi():
 def get_insurance_charges():
     if request.method == "POST":
         print("we are in POST METHOD")
-        data = request.form
+       
         print("data is \n",data)
         gender = data["gender"] # female
         smoker = data["Smoker"]
@@ -29,7 +29,7 @@ def get_insurance_charges():
         med_charges = MedicalInsurance(age,gender,children,smoker,bmi,region)
         charges = med_charges.get_predicted_charges()
         return jsonify({"Result":f"Predicted medical insurnace charges are {np.around(charges[0],2)}"})
-    
+        data = request.form
     
     
 
@@ -37,4 +37,5 @@ def get_insurance_charges():
 
 if __name__ == "__main__":
     app.run()
+    print("hello")
 
